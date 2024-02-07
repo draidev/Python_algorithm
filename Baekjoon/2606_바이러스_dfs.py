@@ -1,8 +1,7 @@
 def count_infected_computers(num_computers, connections):
     graph = {i: set() for i in range(1, num_computers + 1)}
 
-    for pair in connections:
-        computer_a, computer_b = pair
+    for computer_a, computer_b in connections:
         graph[computer_a].add(computer_b)
         graph[computer_b].add(computer_a)
 
@@ -18,10 +17,10 @@ def count_infected_computers(num_computers, connections):
 
     return len(infected_computers) - 1
 
-num_computers = int(input())
-num_connections = int(input())
+computers_num = int(input())
+computers_connections = int(input())
 
-connections = [tuple(map(int, input().split())) for _ in range(num_connections)]
+connections = [tuple(map(int, input().split())) for _ in range(computers_connections)]
 
-result = count_infected_computers(num_computers, connections)
+result = count_infected_computers(computers_num, connections)
 print(result)
