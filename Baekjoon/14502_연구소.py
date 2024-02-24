@@ -1,22 +1,20 @@
 from collections import deque
+import sys
+import copy
+input = sys.stdin.readline
 
-M, N = map(int, input().split())
-
-lab_map = [list(map(int, input().split())) for _ in range(N)]
-
-make_wall(N, M, lab_map)
-
-def make_wall(count, N, M, lab_map):
+def make_wall(count):
     if count == 3:
-        bfs(N, M, lab_map)
+        bfs()
         return
 
     for x in range(N):
         for y in range(M):
             if lab_map[x][y] == 0:
                 lab_map[x][y] = 1
-                make_wall(count+1, x, y, lab_map)
+                cnt = make_wall(count+1)
                 lab_map[x][y] = 0
+            
 
 def bfs(N, M, lab_map):
     queue = deque()
@@ -28,7 +26,7 @@ def bfs(N, M, lab_map):
                 queue.append((x,y))
 
     while queue:
-        x, y = queue.leftpop()
+        x, y = queue.popleft()
         for dx, dy in directions:
             nx = dx + x
             ny = dy + y
@@ -41,3 +39,15 @@ def bfs(N, M, lab_map):
         for y in range(M):
             if lab_map[x][y] == 0:
                 count += 1
+
+    return count
+
+
+M, N = map(int, input().split())
+
+lab_map = [list(map(int, input().split())) for _ in range(N)]
+
+result = 0
+result = make_wall(0)
+
+print(result)
