@@ -25,13 +25,25 @@ def bubble_sort(arr):
 
     return arr
 
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+
+
 if __name__ == '__main__':
     N = int(input())
     
     arr = [int(input()) for _ in range(N)]
 
     # result = selection_sort(arr)
-    result = bubble_sort(arr)
+    # result = bubble_sort(arr)
+    result = quick_sort(arr)
 
     for r in result:
         print(r)
