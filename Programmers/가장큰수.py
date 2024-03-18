@@ -1,3 +1,4 @@
+# Programmers / https://school.programmers.co.kr/learn/courses/30/lessons/42746 / Complete
 def solution(numbers):
     # Convert integers to strings
     numbers = [str(num) for num in numbers]
@@ -18,5 +19,7 @@ def solution(numbers):
     
     # Concatenate sorted strings into a single string
     result = ''.join(sorted_numbers)
+    if result.count('0')==len(result):
+    result = "0"
     
     return result
