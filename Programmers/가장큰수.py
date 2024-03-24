@@ -20,6 +20,6 @@ def solution(numbers):
     # Concatenate sorted strings into a single string
     result = ''.join(sorted_numbers)
     if result.count('0')==len(result):
-    result = "0"
+        result = "0"
     
     return result
