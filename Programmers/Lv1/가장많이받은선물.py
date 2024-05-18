@@ -21,9 +21,6 @@ def solution(friends, gifts):
     for g in list(gift_index.keys()):
         gift_index[g][2] = gift_index[g][0] - gift_index[g][1]
     
-    print(friends_dict)
-    print(gift_index)
-    
     for f in friends:
         for s in list(friends_dict[f].keys()):
             if f == s:
