@@ -11,6 +11,7 @@ def count_infected_computers(num_computers, connections):
     while stack:
         current_computer = stack.pop()
 
+        
         if current_computer not in infected_computers:
             infected_computers.add(current_computer)
             stack.extend(graph[current_computer] - infected_computers)
